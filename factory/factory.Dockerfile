@@ -55,7 +55,12 @@ RUN ls -la /root \
     # build only dependancies: removed in onbuild step
     bzip2 \
     gnupg \
-    dirmngr
+    dirmngr \
+    ca-certificates \
+    libatomic1 \
+    openssl \
+    xz-utils \
+    --option=Dpkg::Options::=--force-confdef
 
 # Copy install scripts into container, these will be deleted in an onbuild step later.
 COPY ./installScripts /opt/installScripts
